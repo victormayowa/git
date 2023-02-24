@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import uuid from "uuid/v1";
+import { v4 as uuidv4 } from 'uuid';
 import NewSongForm from "./NewSongForm";
 
 
@@ -10,10 +10,11 @@ const SongList = () => {
         {title: 'the wild', id: 3},
     ]);
     const addSong = (title) => {
-        setSongs([...songs, {title, id: uuid()}]);
+        setSongs([...songs, {title, id: uuidv4()}]);
     }
     return (
         <div className="song-list">
+            <h1> Song List </h1>
             <ul>
                 {songs.map(song => {
                     return ( <li key={song.id}>{song.title}</li>);
